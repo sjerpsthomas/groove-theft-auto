@@ -20,7 +20,13 @@ func _physics_process(delta: float) -> void:
 	velocity += Vector2(h, v).normalized() * speed
 	velocity /= 1.4
 	
-	move_and_slide()
+	var collision := move_and_collide(velocity * delta)
+	if collision:
+		var collision_car := collision.get_collider() as Car
+		if collision_car:
+			var dir := (collision_car.global_position - global_position).normalized()
+			collision_car.velocity += dir * 100
+			collision_car.update_sprite(dir.angle())
 	
 	if mounted_car != null:
 		if velocity.length() > 0:

@@ -1,12 +1,21 @@
 class_name Car
-extends Node2D
+extends CharacterBody2D
 
 @onready var cars := get_parent()
 @onready var world := cars.get_parent()
 
-var active := true
+var active := true:
+	set(new_active):
+		active = new_active
+		$Shape.disabled = not active
 
 var rot := 0.0
+
+
+func _physics_process(delta: float) -> void:
+	print(velocity)
+	velocity /= 1.3
+	move_and_slide()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
