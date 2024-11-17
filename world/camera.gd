@@ -19,5 +19,6 @@ func _process(delta: float) -> void:
 	global_position = global_position.lerp(pos, 0.04)
 	
 	var target_zoom := 1.0 if player.mounted_car == null else 0.7
-	zoom = Vector2.ONE * lerp(zoom.x, target_zoom, 0.15)
+	var k = -log(1 - 0.15)
+	zoom = Vector2.ONE * (target_zoom + (zoom.x - target_zoom) * exp(-k * delta))
 	

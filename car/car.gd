@@ -13,8 +13,8 @@ var rot := 0.0
 
 
 func _physics_process(delta: float) -> void:
-	print(velocity)
-	velocity /= 1.3
+	velocity = velocity * exp(-2.2 * delta)
+	
 	move_and_slide()
 
 

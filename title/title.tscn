@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn3joqf158y3q"]
+
+[ext_resource type="Script" path="res://title/title.gd" id="1_v86hh"]
+[ext_resource type="Texture2D" uid="uid://bgnfc7wikcs57" path="res://title/bg.png" id="2_6igj3"]
+[ext_resource type="Texture2D" uid="uid://e113hvpa6giu" path="res://title/title.png" id="3_fo45v"]
+
+[node name="Title" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_v86hh")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(240, 140)
+scale = Vector2(0.83, 0.83)
+texture = ExtResource("2_6igj3")
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(235, 107)
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("3_fo45v")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 165.0
+offset_top = 211.0
+offset_right = 230.0
+offset_bottom = 242.0
+scale = Vector2(1.8, 1.8)
+text = "Spelen!"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
