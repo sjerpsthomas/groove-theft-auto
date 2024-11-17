@@ -15,9 +15,16 @@ func _physics_process(delta: float) -> void:
 	var h := float(right) - float(left)
 	var v := float(down) - float(up)
 	
-	velocity = Vector2(h, v).normalized() * 40
+	var speed := 100 if mounted_car != null else 40
+	
+	velocity += Vector2(h, v).normalized() * speed
+	velocity /= 1.4
 	
 	move_and_slide()
+	
+	if mounted_car != null:
+		if velocity.length() > 0:
+			mounted_car.update_sprite(velocity.angle())
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -54,8 +61,6 @@ func try_unmount() -> bool:
 func try_mount() -> bool:
 	var selected_car: Car = world.selected_car
 	if selected_car == null: return false
-	
-	print("asdfsadf")
 	
 	world.selected_car = null
 	selected_car.active = false
