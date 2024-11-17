@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://b10yjijijpove"]
+
+[ext_resource type="Script" path="res://world/world.gd" id="1_5m2ov"]
+[ext_resource type="PackedScene" uid="uid://br64gfbf0k8ic" path="res://player/player.tscn" id="1_21jan"]
+[ext_resource type="PackedScene" uid="uid://dohpkoyty6led" path="res://car/car.tscn" id="2_07fui"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_5m2ov")
+
+[node name="Player" parent="." instance=ExtResource("1_21jan")]
+position = Vector2(57, 34)
+
+[node name="Cars" type="Node" parent="."]
+
+[node name="Car" parent="Cars" instance=ExtResource("2_07fui")]
+position = Vector2(159, 134)
