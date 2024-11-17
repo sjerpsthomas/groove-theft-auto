@@ -1153,12 +1153,12 @@ tile_map_data = PackedByteArray("AADm/+b/AAAZABAAAADm/+f/AAAZABAAAADn/+H/AAAZAA4
 tile_set = SubResource("TileSet_dngee")
 
 [node name="Player" parent="." instance=ExtResource("1_21jan")]
-position = Vector2(57, 34)
+position = Vector2(-52, -257)
 
 [node name="Cars" type="Node" parent="."]
 
 [node name="Car" parent="Cars" instance=ExtResource("2_07fui")]
-position = Vector2(159, 134)
+position = Vector2(-84, -221)
 
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("4_1ki31")
